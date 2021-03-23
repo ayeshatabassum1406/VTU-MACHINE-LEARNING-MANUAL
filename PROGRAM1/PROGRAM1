@@ -1,0 +1,28 @@
+import csv
+a=[]
+print("The Given Training Data Set:\n")
+with open('enjoysport1.csv','r') as csvfile:
+    reader=csv.reader(csvfile)
+    
+    for row in reader:
+        a.append(row)
+        print(row)
+print("\n the total number of traning instances are:",len(a))
+num_attributes=len(a[0])-1
+
+print("\n the initial hypothesis is:")
+hypothesis=['0']*num_attributes
+hypothesis
+for j in range(0,num_attributes):
+    hypothesis[j]=a[0][j]
+print("find s:finding a maximally specific hypothesis")
+for i in range(0,len(a)):
+    if a[i][num_attributes]=="yes":
+        for j in range(0,num_attributes):
+         
+            if hypothesis[j] == '0' or hypothesis[j] == a[i][j]:
+                hypothesis[j] = a[i][j]
+            else:
+                hypothesis[j] = '?'
+    print("the hypothesis for the  training instance {0}  is\n".format(i+1),hypothesis)
+print("the maximally specific hypothesis for the training instance is\n",hypothesis)
