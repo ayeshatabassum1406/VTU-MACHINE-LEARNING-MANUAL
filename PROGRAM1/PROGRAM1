@@ -1,7 +1,7 @@
 import csv
 a=[]
 print("The Given Training Data Set:\n")
-with open('enjoysport1.csv','r') as csvfile:
+with open('enjoysport.csv','r') as csvfile:
     reader=csv.reader(csvfile)
     
     for row in reader:
