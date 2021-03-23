@@ -1,0 +1,11 @@
+a1,a2,a3,classification
+true,hot,high,no
+true,hot,high,no
+false,hot,high,yes
+false,cool,normal,yes
+false,cool,normal,yes
+true,cool,high,no
+true,hot,high,no
+true,hot,normal,yes
+false,cool,normal,yes
+false,cool,high,no
