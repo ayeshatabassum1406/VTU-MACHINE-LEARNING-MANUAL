@@ -1,0 +1,30 @@
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+import pandas as pd
+from sklearn import datasets
+
+iris=datasets.load_iris()
+x=iris.data
+y=iris.target
+
+print('sepal-length','sepal=width','petal-length','petal-width')
+print(x)
+print('class:0 0-1ris-setosa','1-iris-versicolor','2-iris-virginica')
+print(y)
+
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.30)
+
+classifier=KNeighborsClassifier(n_neighbors=8,p=3,metric='euclidean')
+classifier.fit(x_train,y_train)
+y_pred=classifier.predict(x_test)
+cm=confusion_matrix(y_test,y_pred)
+print('confusion matrix is as follows \n',cm)
+print('acccuracy metrics')
+print(classification_report(y_test,y_pred))
+print("correct prediction ",accuracy_score(y_test,y_pred))
+print('wrong prediction ',(1-accuracy_score(y_test,y_pred)))
+
+
